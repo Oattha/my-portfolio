@@ -304,7 +304,7 @@ export default function Home() {
   className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-6 bg-gradient-to-r from-white via-gray-100 to-white dark:from-black dark:via-gray-900 dark:to-black"
 >
   <motion.div
-    className="md:w-1/2"
+    className="w-full md:w-1/2 max-w-3xl mx-auto"   // 👈 เพิ่ม max-w และ mx-auto
     initial={{ opacity: 0, x: -50 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 1 }}
@@ -316,69 +316,68 @@ export default function Home() {
       {translations[lang].aboutText}
     </p>
 
-    {/* ✅ ช่องทางการติดตาม */}
-<div className="flex gap-6 text-4xl">
-    <h3 className="text-xl font-semibold text-green-400 mb-4">
+{/* ✅ ช่องทางการติดตาม */}
+<div className="mt-6">
+  <h3 className="text-xl font-semibold text-green-400 mb-4 text-left">
     {lang === "en" ? "Follow Me" : "ช่องทางการติดตาม"}
   </h3>
-  <a
-    href="https://www.facebook.com/share/1A1vAQGmCe/?mibextid=wwXIfr"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-blue-600 hover:text-blue-400 transition-transform transform hover:scale-125 
-               drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]"
-  >
-    <FontAwesomeIcon icon={faFacebook} />
-  </a>
-  <a
-    href="https://line.me/ti/p/lifDdgLufu"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-green-500 hover:text-green-400 transition-transform transform hover:scale-125 
-               drop-shadow-[0_0_12px_rgba(34,197,94,0.8)]"
-  >
-    <FontAwesomeIcon icon={faLine} />
-  </a>
-<a
-  href="https://github.com/Oattha"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-black dark:text-white hover:text-green-400 
-             transition-transform transform hover:scale-125 
-             drop-shadow-[0_0_12px_rgba(0,0,0,0.6)] dark:drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]"
->
-  <FontAwesomeIcon icon={faGithub} />
-</a>
+  <div className="flex gap-6 text-4xl">
+    <a
+      href="https://www.facebook.com/share/1A1vAQGmCe/?mibextid=wwXIfr"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 hover:text-blue-400 transition-transform transform hover:scale-125 
+                 drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]"
+    >
+      <FontAwesomeIcon icon={faFacebook} />
+    </a>
+    <a
+      href="https://line.me/ti/p/lifDdgLufu"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-green-500 hover:text-green-400 transition-transform transform hover:scale-125 
+                 drop-shadow-[0_0_12px_rgba(34,197,94,0.8)]"
+    >
+      <FontAwesomeIcon icon={faLine} />
+    </a>
+    <a
+      href="https://github.com/Oattha"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-black dark:text-white hover:text-green-400 
+                 transition-transform transform hover:scale-125 
+                 drop-shadow-[0_0_12px_rgba(0,0,0,0.6)] dark:drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]"
+    >
+      <FontAwesomeIcon icon={faGithub} />
+    </a>
+    <a
+      href="https://www.instagram.com/oatthaphon.__?igsh=MW1rZDJmenJuMmxjaA=="
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-pink-500 hover:text-purple-400 
+                 transition-transform transform hover:scale-125 
+                 drop-shadow-[0_0_12px_rgba(236,72,153,0.8)] 
+                 hover:drop-shadow-[0_0_20px_rgba(147,51,234,0.9)]"
+    >
+      <FontAwesomeIcon icon={faInstagram} />
+    </a>
+    <a
+      href="https://www.tiktok.com/@uuykae?_t=ZS-8zlzEFWqfWj&_r=1"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-black dark:text-white hover:text-pink-400 
+                 transition-transform transform hover:scale-125 
+                 drop-shadow-[0_0_12px_rgba(236,72,153,0.8)]"
+    >
+      <FontAwesomeIcon icon={faTiktok} />
+    </a>
+  </div>
 
-<a
-  href="https://www.instagram.com/oatthaphon.__?igsh=MW1rZDJmenJuMmxjaA=="
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-pink-500 hover:text-purple-400 
-             transition-transform transform hover:scale-125 
-             drop-shadow-[0_0_12px_rgba(236,72,153,0.8)] 
-             hover:drop-shadow-[0_0_20px_rgba(147,51,234,0.9)]"
->
-  <FontAwesomeIcon icon={faInstagram} />
-</a>
-
-
-
-  <a
-    href="https://www.tiktok.com/@uuykae?_t=ZS-8zlzEFWqfWj&_r=1"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-black dark:text-white hover:text-pink-400 transition-transform transform hover:scale-125 
-               drop-shadow-[0_0_12px_rgba(236,72,153,0.8)]"
-  >
-    <FontAwesomeIcon icon={faTiktok} />
-  </a>
 </div>
-
   </motion.div>
 
   <motion.div
-    className="md:w-1/3 flex justify-center"
+    className="md:w-1/3 flex justify-center max-w-sm mx-auto"  // 👈 ดันภาพให้ไม่ชิดขอบ
     initial={{ opacity: 0, scale: 0.8 }}
     whileInView={{ opacity: 1, scale: 1 }}
     transition={{ duration: 1, delay: 0.3 }}
@@ -424,7 +423,7 @@ export default function Home() {
             { icon: faJsSquare, color: "text-yellow-400", top: "70%", left: "60%" },
             { icon: faPython, color: "text-indigo-400", top: "45%", left: "40%" },
             { icon: faDatabase, color: "text-pink-400", top: "20%", left: "55%" },
-            { icon: faCloud, color: "text-white", top: "75%", left: "35%" },
+            { icon: faCloud, color: "text-white", top: "80%", left: "35%" },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -438,32 +437,52 @@ export default function Home() {
           ))}
         </div>
 
-        {/* skill list จริง */}
-        <motion.div
-          className="relative z-10 grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-800 dark:text-gray-300 text-center max-w-4xl"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          <span className="hover:text-green-400 transition-colors">
-            ⚡ Programming : JavaScript, Dart, Python, Java, C++, React.js, Vue.js, Node.js, HTML
-          </span>
-          <span className="hover:text-green-400 transition-colors">
-            ⚡ Programming : CSS, Tailwind , Prisma ORM, MySQL, Firebase, RESTful API, JWT, Docker
-          </span>
-          <span className="hover:text-green-400 transition-colors">
-            ⚡ FrameWork : React, Bootstrap, Tailwind, Node JS, .NET , Flutter
-          </span>
-          <span className="hover:text-green-400 transition-colors">
-            ⚡ DataBase : MongoDB, MySQL, PostgreSQL
-          </span>
-          <span className="hover:text-green-400 transition-colors">
-            ⚡ Tools : Git, GitHub, Postman, VS Code, Android Studio, Figma
-          </span>
-          <span className="hover:text-green-400 transition-colors">
-            ⚡ Cloud : AWS Cloud, Firebase
-          </span>
-        </motion.div>
+{/* skill list จริง */}
+<motion.div
+  className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 0.3 }}
+>
+  {[
+    {
+      title: "⚡ Programming",
+      detail: "JavaScript, Dart, Python, Java, C++, React.js, Vue.js, Node.js, HTML",
+    },
+    {
+      title: "⚡ Programming",
+      detail: "CSS, Tailwind, Prisma ORM, MySQL, Firebase, RESTful API, JWT, Docker",
+    },
+    {
+      title: "⚡ FrameWork",
+      detail: "React, Bootstrap, Tailwind, Node JS, .NET, Flutter",
+    },
+    {
+      title: "⚡ DataBase",
+      detail: "MongoDB, MySQL, PostgreSQL",
+    },
+    {
+      title: "⚡ Tools",
+      detail: "Git, GitHub, Postman, VS Code, Android Studio, Figma",
+    },
+    {
+      title: "⚡ Cloud",
+      detail: "AWS Cloud, Firebase, Netlify",
+    },
+  ].map((skill, i) => (
+    <div
+      key={i}
+      className="p-4 rounded-xl border border-green-400/40 backdrop-blur-sm 
+                 bg-white/5 dark:bg-black/20 hover:shadow-green-400/40 transition-all duration-300"
+    >
+      {/* เฉพาะหัวข้อเบลอ+หนา */}
+      <h3 className="font-bold text-green-400 mb-2">{skill.title}</h3>
+      {/* รายละเอียดตัวธรรมดา */}
+      <p className="text-gray-800 dark:text-gray-300">{skill.detail}</p>
+    </div>
+  ))}
+</motion.div>
+
       </section>
 
 
