@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function Certificates() {
   const { lang } = useLanguage();
 
   const translations = {
-    en: { title: "Certificates", back: "← Home", download: "Download PDF" },
-    th: { title: "เกียรติบัตร", back: "← กลับหน้าแรก", download: "ดาวน์โหลด PDF" },
+    en: { title: "Certificates", back: "", download: "Download PDF" },
+    th: { title: "เกียรติบัตร", back: "", download: "ดาวน์โหลด PDF" },
   };
 
   const certificates = [
@@ -35,8 +36,11 @@ export default function Certificates() {
     <div className="bg-white dark:bg-black min-h-screen text-black dark:text-white p-6 relative transition-colors">
       <Link
         to="/"
-        className="absolute top-6 left-6 bg-green-400 hover:bg-green-500 text-black px-3 py-1 rounded-full font-semibold text-sm transition-all shadow-md"
+        className="absolute top-6 left-6 bg-green-400 hover:bg-green-500 
+             text-black px-3 py-1 rounded-full font-semibold text-sm 
+             flex items-center gap-2 transition-all shadow-md"
       >
+        <FaArrowLeft className="text-base" />
         {translations[lang].back}
       </Link>
 

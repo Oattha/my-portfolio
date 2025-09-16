@@ -20,3 +20,14 @@ code {
 html {
   scroll-behavior: smooth;
 }
+
+
+/* index.css */
+@media (max-width: 640px) {
+  .scroll-3-rows {
+    display: grid;
+    grid-auto-flow: column;        /* จัดให้เลื่อนไปด้านข้าง */
+    grid-template-rows: repeat(3, minmax(0, 1fr)); /* 3 แถว */
+    gap: 0.75rem; /* เท่ากับ Tailwind gap-3 */
+  }
+}

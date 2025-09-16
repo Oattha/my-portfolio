@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-// ⬇️ ใช้ LanguageContext
+import { useEffect, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function Experience() {
-  const { lang } = useLanguage(); // ✅ ใช้ค่า lang จาก context
+  const { lang } = useLanguage();
+  const [selectedImage, setSelectedImage] = useState(null); // 🟢 state สำหรับ modal
 
   const translations = {
     en: {
       pageTitle: "Experience",
-      back: "← Home",
+      back: "",
       view: "View",
       example: "Example",
     },
     th: {
       pageTitle: "ประสบการณ์",
-      back: "← หน้าหลัก",
+      back: "",
       view: "ดูรายละเอียด",
       example: "ตัวอย่าง",
     },
@@ -137,20 +138,23 @@ export default function Experience() {
     },
   ];
 
-  // 🟢 reset scroll ทุกครั้งที่เข้าเพจนี้
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="bg-white dark:bg-black min-h-screen text-black dark:text-white p-6 relative transition-colors">
-      {/* ปุ่มย้อนกลับมุมบนซ้าย */}
+      {/* ปุ่มย้อนกลับ */}
       <Link
         to="/"
-        className="absolute top-6 left-6 bg-green-400 hover:bg-green-500 text-black px-3 py-1 rounded-full font-semibold text-sm transition-all shadow-md"
+        className="absolute top-6 left-6 bg-green-400 hover:bg-green-500 
+             text-black px-3 py-1 rounded-full font-semibold text-sm 
+             flex items-center gap-2 transition-all shadow-md"
       >
+        <FaArrowLeft className="text-base" />
         {translations[lang].back}
       </Link>
+
 
       <h1 className="text-4xl font-bold mb-6 text-center">
         {translations[lang].pageTitle}
@@ -173,17 +177,20 @@ export default function Experience() {
                       {project.name}
                     </h3>
 
-                    {/* แสดงรูปหลายรูปถ้ามี */}
+                    {/* แสดงรูปภาพ */}
                     {project.images && (
-                      <div className="flex space-x-3 overflow-x-auto mb-4">
-                        {project.images.map((img, index) => (
-                          <img
-                            key={index}
-                            src={img}
-                            alt={`${project.name} ${index + 1}`}
-                            className="h-32 rounded-lg shadow-md"
-                          />
-                        ))}
+                      <div className="mb-4">
+                        <div className="grid grid-cols-3 gap-3">
+                          {project.images.map((img, index) => (
+                            <img
+                              key={index}
+                              src={img}
+                              alt={`${project.name} ${index + 1}`}
+                              className="w-full h-28 object-cover rounded-lg shadow-md hover:scale-105 transition-transform cursor-pointer"
+                              onClick={() => setSelectedImage(img)}
+                            />
+                          ))}
+                        </div>
                       </div>
                     )}
 
@@ -191,7 +198,7 @@ export default function Experience() {
                       {project.description[lang]}
                     </p>
 
-                    {/* แสดง Wokwi links ถ้ามี */}
+                    {/* Wokwi Links */}
                     {project.wokwi && (
                       <div className="flex flex-col gap-2 mb-3">
                         {project.wokwi.map((link, idx) => (
@@ -208,6 +215,8 @@ export default function Experience() {
                       </div>
                     )}
                   </div>
+
+                  {/* GitHub / Drive / Figma Link */}
                   {project.github && (
                     <a
                       href={project.github}
@@ -224,6 +233,20 @@ export default function Experience() {
           </div>
         ))}
       </div>
+
+      {/* Modal สำหรับดูรูปเต็ม */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Full View"
+            className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </div>
   );
 }

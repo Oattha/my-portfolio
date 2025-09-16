@@ -1,28 +1,24 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-// ⬇️ ใช้ LanguageContext
+import { useEffect, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function Hobbies() {
   const { lang } = useLanguage();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const translations = {
-    en: {
-      back: "← Home",
-      pageTitle: "Work & Hobbies",
-    },
-    th: {
-      back: "← หน้าหลัก",
-      pageTitle: "งาน & งานอดิเรก",
-    },
+    en: { back: "", pageTitle: "Work & Hobbies" },
+    th: { back: "", pageTitle: "งาน & งานอดิเรก" },
   };
 
   const hobbiesList = [
     {
       title: "NRC",
       description: {
-        en: "Worked in the assembly department building power plants with Namruan Construction Company during every school break from 2022 to present.",
-        th: "ทำงานในฝ่ายประกอบโรงไฟฟ้ากับบริษัทน้ำรวยก่อสร้างทุกช่วงปิดภาคเรียน ตั้งแต่ปี 2022 จนถึงปัจจุบัน",
+        en: "Worked in the assembly department constructing power plants with Namruean Construction Company Limited (บริษัท นามเรือน คอนสตรัคชั่น จำกัด) during every school break from 2022 to present.",
+        th: "ทำงานในฝ่ายช่างประกอบสร้างโรงไฟฟ้ากับบริษัท นามเรือน คอนสตรัคชั่น จำกัด (Namruean Construction Company Limited) ทุกช่วงปิดภาคเรียน ตั้งแต่ปี 2022 จนถึงปัจจุบัน"
+
       },
       images: [
         "/asset/NRC/NRC1.jpg",
@@ -42,8 +38,9 @@ export default function Hobbies() {
     {
       title: "Head of IT18 KUKPS",
       description: {
-        en: "Served as the head of the IT18 program at Kasetsart University Kamphaeng Saen Campus starting from the first year. Organized and coordinated various events and activities for the department. Stepped down in the third year to allow someone else to take over, as I frequently had to return home to help with family responsibilities and could not fully dedicate myself to the role.",
-        th: "担任 IT18 รุ่นหัวหน้าภาควิชา ที่มหาวิทยาลัยเกษตรศาสตร์ กำแพงแสน ตั้งแต่ปีหนึ่ง ดูแลและจัดกิจกรรมต่าง ๆ ของสาขา พอถึงปีสามได้ลาออกเพื่อให้น้องรุ่นใหม่ขึ้นแทน เนื่องจากต้องกลับบ้านช่วยงานครอบครัวบ่อย ทำให้ไม่สามารถทุ่มเทได้เต็มที่",
+        en: "Served as the head of the IT18 program at Kasetsart University Kamphaeng Saen Campus starting from the first year, but stepped down in the third year due to family responsibilities, allowing someone more available to take over the role.",
+        th: "ดำรงตำแหน่งหัวหน้ารุ่น IT18 ที่มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตกำแพงแสน ตั้งแต่ชั้นปีที่ 1 แต่ได้ลาออกในชั้นปีที่ 3 เนื่องจากมีเหตุจำเป็นต้องกลับไปช่วยงานครอบครัว จึงมอบหมายให้ผู้ที่พร้อมกว่ารับหน้าที่ต่อ"
+
       },
       images: [
         "/asset/head/_DSC0682.jpg",
@@ -57,8 +54,8 @@ export default function Hobbies() {
     {
       title: "Music – VODKA Band",
       description: {
-        en: "Formed a band named 'VODKA' in 2022, starting from passion for music and evolving into both experience and income opportunities. Competed in various events and won several championships, while also performing regularly at university events.",
-        th: "ตั้งวงดนตรีชื่อ 'VODKA' ในปี 2022 จากความหลงใหลในดนตรี พัฒนาเป็นทั้งประสบการณ์และโอกาสสร้างรายได้ เข้าประกวดตามงานต่าง ๆ ได้รางวัลหลายรายการ และยังแสดงในงานมหาวิทยาลัยอย่างต่อเนื่อง",
+        en: "Formed a band with friends named VODKA in 2022, starting from a shared passion that grew into both valuable experiences and income. Participated in various competitions and won several first-place awards, while also regularly performing at university events.",
+        th: "ฟอร์มวงดนตรีร่วมกับเพื่อนๆชื่อว่า VODKA ตั้งแต่ปี 2022 จากความชอบจนกลายเป็นสิ่งที่สร้างทั้งประสบการณ์และรายได้ เข้าประกวดในงานต่าง ๆ และคว้ารางวัลชนะเลิศหลายครั้ง อีกทั้งยังได้มีโอกาสขึ้นแสดงในงานต่าง ๆ ของมหาวิทยาลัยเป็นประจำ"
       },
       images: [
         "/asset/music/music1.jpg",
@@ -81,8 +78,8 @@ export default function Hobbies() {
     {
       title: "Open House IT",
       description: {
-        en: "Participated in the IT Open House event to guide and introduce younger students to the field of game development. Created a custom 3D game featuring personalized avatars of the students themselves, allowing them to experience being inside the game.",
-        th: "เข้าร่วมงาน Open House IT เพื่อแนะนำและแนะแนวให้นักเรียนรุ่นน้องด้านการพัฒนาเกม ทำเกม 3D ที่ใส่ตัวละครเป็นรูปนักเรียนเอง ให้ได้สัมผัสประสบการณ์เหมือนเข้าไปอยู่ในเกมจริง ๆ",
+        en: "Participated in the IT Open House event by creating a 3D game for younger students, featuring custom characters made from their own likeness. Deployed the games online so that the students could take them back and play anytime.",
+        th: "เข้าร่วมงาน Open House IT ทำเกม 3 มิติให้น้อง ๆ โดยใส่ตัวละครที่สร้างจากน้อง ๆ เองเข้าไปอยู่ในเกม และนำเกมของน้อง ๆ ไป deploy ออนไลน์ เพื่อให้น้อง ๆ สามารถนำกลับไปเล่นได้",
       },
       images: [
         "/asset/openhoues/โอเพ้นเฮ้าส์ 1.jpg",
@@ -94,8 +91,8 @@ export default function Hobbies() {
     {
       title: "Cinema – Outdoor Movies",
       description: {
-        en: "I am passionate about traditional outdoor movies (หนังกลางแปลง) in central Thailand and often attend sound system competitions. Frequently had the chance to practice building power amplifier circuits and repairing loudspeakers, which deepened my interest and skills in audio engineering.",
-        th: "มีความหลงใหลในหนังกลางแปลงแบบดั้งเดิมในภาคกลางของไทย และชอบเข้าร่วมการประกวดเครื่องเสียงอยู่บ่อย ๆ ได้ฝึกประกอบวงจรเครื่องขยายเสียง และซ่อมลำโพง ทำให้ยิ่งสนใจและพัฒนาทักษะด้านวิศวกรรมเสียง",
+        en: "I am passionate about traditional outdoor movies in central Thailand, frequently participating in sound system competitions. I have practiced building amplifiers, repairing speakers, and working closely with various electronic equipment, which has enabled me to confidently use basic tools.",
+        th: "มีความชื่นชอบในหนังกลางแปลงภาคกลาง เข้าร่วมการประกวดเครื่องเสียงอยู่บ่อยครั้ง และได้ฝึกประกอบแอมป์ ซ่อมลำโพง รวมถึงคลุกคลีอยู่กับอุปกรณ์อิเล็กทรอนิกส์ต่าง ๆ ทำให้สามารถใช้งานเครื่องมือพื้นฐานได้อย่างมั่นใจ",
       },
       images: [
         "/asset/cinema/cinema1.jpg",
@@ -115,20 +112,24 @@ export default function Hobbies() {
     },
   ];
 
-  // 🟢 reset scroll ทุกครั้งที่เข้าเพจนี้
+  // reset scroll
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="bg-white dark:bg-black min-h-screen text-black dark:text-white p-6 relative transition-colors">
-      {/* ปุ่มย้อนกลับมุมบนซ้าย */}
-      <Link
-        to="/"
-        className="absolute top-6 left-6 bg-green-400 hover:bg-green-500 text-black px-3 py-1 rounded-full font-semibold text-sm transition-all shadow-md"
-      >
-        {translations[lang].back}
-      </Link>
+      {/* ปุ่มย้อนกลับ */}
+<Link
+  to="/"
+  className="absolute top-6 left-6 bg-green-400 hover:bg-green-500 
+             text-black px-3 py-1 rounded-full font-semibold text-sm 
+             flex items-center gap-2 transition-all shadow-md"
+>
+  <FaArrowLeft className="text-base" />
+  {translations[lang].back}
+</Link>
+
 
       <h1 className="text-4xl font-bold mb-6 text-center">
         {translations[lang].pageTitle}
@@ -145,20 +146,36 @@ export default function Hobbies() {
               {hobby.description[lang]}
             </p>
 
-            {/* แสดงรูปหลายคอลัมน์ */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {/* Fix 3 คอลัมน์ (แกน X) แล้วดันลงล่าง (แกน Y) */}
+            <div className="grid grid-cols-3 gap-3">
               {hobby.images.map((img, i) => (
                 <img
                   key={i}
                   src={img}
                   alt={`${hobby.title} ${i + 1}`}
-                  className="w-full h-32 object-cover rounded-lg shadow-md hover:scale-105 transition-transform"
+                  className="w-full h-32 object-cover rounded-lg shadow-md hover:scale-105 transition-transform cursor-pointer"
+                  onClick={() => setSelectedImage(img)}
                 />
               ))}
             </div>
+
           </div>
         ))}
       </div>
+
+      {/* Modal รูปเต็มจอ */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Full View"
+            className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </div>
   );
 }

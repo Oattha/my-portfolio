@@ -260,52 +260,134 @@ export default function Home() {
           <FontAwesomeIcon icon={faJsSquare} />
         </motion.div>
 
-        {/* Profile + Name + Title (กล่องเดียวกัน) */}
-        <div className="flex flex-col items-center justify-center">
-          <motion.img
-            src="/asset/NongMo-0608.jpg"
-            alt="Oatthaphon Khamphon"
-            className="w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-green-400 object-cover mb-6 z-10 shadow-xl"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1 }}
-          />
+{/* Profile + Name + Title (กล่องเดียวกัน) */}
+<div className="flex flex-col items-center justify-center">
+  <motion.img
+    src="/asset/NongMo-0608.jpg"
+    alt="Oatthaphon Khamphon"
+    className="w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-green-400 object-cover mb-6 z-10 shadow-xl"
+    initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+    transition={{ duration: 1 }}
+  />
 
-          <motion.h1
-            className="text-4xl md:text-6xl font-extrabold tracking-wide"
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.2 }}
-          >
-            OATTHAPHON KHAMPHON
-          </motion.h1>
+  {/* 🔥 ชื่อแบบเรืองแสง */}
+<motion.h1
+  className="text-4xl md:text-6xl font-extrabold tracking-wide text-green-400 
+             drop-shadow-[0_0_20px_rgba(34,197,94,0.9)]"
+  initial={{ y: -50, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 1.2 }}
+>
+  OATTHAPHON KHAMPHON
+</motion.h1>
 
-          <motion.p
-            className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400 text-2xl mt-4"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-          >
-            Full Stack Developer Intern
-          </motion.p>
-        </div>
+
+  {/* Title */}
+  <motion.p
+    className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400 
+               text-2xl mt-4 drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]"
+    initial={{ y: 50, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 1.2, delay: 0.3 }}
+  >
+    Full Stack Developer Intern
+  </motion.p>
+</div>
+
       </section>
 
 
-      {/* About Me */}
-      <section id="about" className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-6 bg-gradient-to-r from-white via-gray-100 to-white dark:from-black dark:via-gray-900 dark:to-black">
-        <motion.div className="md:w-1/2"
-          initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
-          <h2 className="text-4xl font-bold mb-6 text-green-400">{translations[lang].about}</h2>
-          <p className="text-gray-800 dark:text-gray-300 leading-relaxed">
-            {translations[lang].aboutText}
-          </p>
-        </motion.div>
-        <motion.div className="md:w-1/3 flex justify-center"
-          initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.3 }}>
-          <img src="/asset/NongMo-0608.jpg" alt="About" className="rounded-2xl shadow-lg border-4 border-green-400" />
-        </motion.div>
-      </section>
+{/* About Me */}
+<section
+  id="about"
+  className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-6 bg-gradient-to-r from-white via-gray-100 to-white dark:from-black dark:via-gray-900 dark:to-black"
+>
+  <motion.div
+    className="md:w-1/2"
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 1 }}
+  >
+    <h2 className="text-4xl font-bold mb-6 text-green-400">
+      {translations[lang].about}
+    </h2>
+    <p className="text-gray-800 dark:text-gray-300 leading-relaxed mb-6">
+      {translations[lang].aboutText}
+    </p>
+
+    {/* ✅ ช่องทางการติดตาม */}
+<div className="flex gap-6 text-4xl">
+  <a
+    href="https://www.facebook.com/share/1A1vAQGmCe/?mibextid=wwXIfr"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 hover:text-blue-400 transition-transform transform hover:scale-125 
+               drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]"
+  >
+    <FontAwesomeIcon icon={faFacebook} />
+  </a>
+  <a
+    href="https://line.me/ti/p/lifDdgLufu"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-green-500 hover:text-green-400 transition-transform transform hover:scale-125 
+               drop-shadow-[0_0_12px_rgba(34,197,94,0.8)]"
+  >
+    <FontAwesomeIcon icon={faLine} />
+  </a>
+<a
+  href="https://github.com/Oattha"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black dark:text-white hover:text-green-400 
+             transition-transform transform hover:scale-125 
+             drop-shadow-[0_0_12px_rgba(0,0,0,0.6)] dark:drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]"
+>
+  <FontAwesomeIcon icon={faGithub} />
+</a>
+
+<a
+  href="https://www.instagram.com/oatthaphon.__?igsh=MW1rZDJmenJuMmxjaA=="
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-pink-500 hover:text-purple-400 
+             transition-transform transform hover:scale-125 
+             drop-shadow-[0_0_12px_rgba(236,72,153,0.8)] 
+             hover:drop-shadow-[0_0_20px_rgba(147,51,234,0.9)]"
+>
+  <FontAwesomeIcon icon={faInstagram} />
+</a>
+
+
+
+  <a
+    href="https://www.tiktok.com/@uuykae?_t=ZS-8zlzEFWqfWj&_r=1"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-black dark:text-white hover:text-pink-400 transition-transform transform hover:scale-125 
+               drop-shadow-[0_0_12px_rgba(236,72,153,0.8)]"
+  >
+    <FontAwesomeIcon icon={faTiktok} />
+  </a>
+</div>
+
+  </motion.div>
+
+  <motion.div
+    className="md:w-1/3 flex justify-center"
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 1, delay: 0.3 }}
+  >
+    <img
+      src="/asset/NongMo-0608.jpg"
+      alt="About"
+      className="rounded-2xl shadow-lg border-4 border-green-400"
+    />
+  </motion.div>
+</section>
+
 
       {/* Hard Skills */}
       <section
@@ -382,77 +464,342 @@ export default function Home() {
       </section>
 
 
-      {/* Hobbies */}
-      <section id="hobbies" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-black text-center relative">
-        <motion.h2 className="text-4xl font-bold mb-10 text-pink-400 drop-shadow-lg">{translations[lang].hobbies}</motion.h2>
-        <p className="text-gray-800 dark:text-gray-300 max-w-2xl">{translations[lang].hobbiesText}</p>
-        <motion.div whileHover={{ scale: 1.15 }}>
-          <Link to="/hobbies" className="mt-10 inline-block px-10 py-3 text-lg font-bold rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-black shadow-lg hover:shadow-green-400/70 transition-all">
-            {translations[lang].viewHobbies}
-          </Link>
-        </motion.div>
-      </section>
+{/* Hobbies */}
+<section
+  id="hobbies"
+  className="relative min-h-screen flex flex-col items-center justify-center px-6 
+             bg-gradient-to-br from-white via-gray-100 to-white 
+             dark:from-gray-900 dark:via-black dark:to-gray-900 
+             text-center overflow-hidden"
+>
+  {/* 🔮 พื้นหลังแสงวิ่ง */}
+  <motion.div
+    className="absolute w-96 h-96 bg-pink-500/30 rounded-full blur-3xl"
+    animate={{ x: [0, 200, -200, 0], y: [0, -150, 100, 0] }}
+    transition={{ repeat: Infinity, duration: 15, ease: "easeInOut" }}
+    style={{ top: "20%", left: "10%" }}
+  />
+  <motion.div
+    className="absolute w-80 h-80 bg-green-400/30 rounded-full blur-3xl"
+    animate={{ x: [50, -180, 120, 50], y: [-100, 120, -80, -100] }}
+    transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
+    style={{ bottom: "15%", right: "10%" }}
+  />
+  <motion.div
+    className="absolute w-72 h-72 bg-blue-400/30 rounded-full blur-3xl"
+    animate={{ x: [-120, 150, -150, -120], y: [80, -120, 100, 80] }}
+    transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
+    style={{ top: "50%", left: "50%" }}
+  />
 
-      {/* Experience */}
-      <section id="experience" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gray-100 dark:bg-gray-900 text-center">
-        <motion.h2 className="text-4xl font-bold mb-10 text-green-400">{translations[lang].experience}</motion.h2>
-        <p className="text-gray-800 dark:text-gray-300 max-w-2xl">{translations[lang].experienceText}</p>
-        <motion.div whileHover={{ scale: 1.1, rotate: 1 }}>
-          <Link to="/experience" className="mt-10 inline-flex items-center gap-2 px-10 py-3 text-lg font-bold rounded-full bg-green-500 text-black shadow-lg hover:bg-green-600 transition-all">
-            {translations[lang].viewExperience}
-          </Link>
-        </motion.div>
-      </section>
+  {/* เนื้อหา */}
+  <motion.h2 
+    className="relative z-10 text-4xl font-bold mb-10 
+               text-pink-500 dark:text-pink-400 drop-shadow-lg"
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    {translations[lang].hobbies}
+  </motion.h2>
 
-      {/* Certificates */}
-      <section id="certificate" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-tr from-white to-gray-100 dark:from-black dark:to-gray-900 text-center relative">
-        <motion.h2 className="text-4xl font-bold mb-10 text-yellow-400 drop-shadow-lg">{translations[lang].certificates}</motion.h2>
-        <p className="text-gray-800 dark:text-gray-300 max-w-2xl">{translations[lang].certificatesText}</p>
-        <motion.div whileHover={{ scale: 1.2 }}>
-          <Link to="/certificates" className="mt-10 inline-block px-10 py-3 text-lg font-bold rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-lg hover:shadow-yellow-400/70 transition-all">
-            {translations[lang].viewCertificates}
-          </Link>
-        </motion.div>
-      </section>
+  <motion.p 
+    className="relative z-10 
+               text-gray-700 dark:text-gray-300 
+               max-w-2xl"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1, delay: 0.3 }}
+  >
+    {translations[lang].hobbiesText}
+  </motion.p>
 
-      {/* Education */}
-      <section id="education" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gray-100 dark:bg-gray-800 text-center">
-        <motion.h2 className="text-4xl font-bold mb-6 text-green-400">{translations[lang].education}</motion.h2>
-        <motion.div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg max-w-xl">
-          <p className="font-semibold">Phanomthuanchanupatham School (2015 - 2021)</p>
-          <p>GPX : 3.46</p>
-          <p className="mt-4 font-semibold">FACULTY OF LIBERAL ARTS & SCIENCE — IT<br />Kasetsart University • Kamphaeng Saen Campus</p>
-          <p>GPX : 3.14</p>
-          <a href="/asset/grad/สารสนเทศนิสิต มก_.pdf" download className="mt-6 inline-block rounded-lg bg-green-600 px-6 py-2 text-white font-semibold hover:bg-green-700 transition">
-            {translations[lang].downloadTranscript}
-          </a>
-        </motion.div>
-      </section>
+  <motion.div 
+    whileHover={{ scale: 1.15 }} 
+    className="relative z-10"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.6 }}
+  >
+    <Link
+      to="/hobbies"
+      className="mt-10 inline-block px-10 py-3 text-lg font-bold rounded-full 
+                 bg-gradient-to-r from-green-400 to-blue-500 text-black shadow-lg 
+                 hover:shadow-green-400/70 transition-all"
+    >
+      {translations[lang].viewHobbies}
+    </Link>
+  </motion.div>
+</section>
 
-      {/* Contact */}
-      <section id="contact" className="min-h-screen flex flex-col items-center justify-center px-6 bg-white dark:bg-black text-center">
-        <motion.h2 className="text-4xl font-bold mb-6 text-green-300">{translations[lang].contact}</motion.h2>
-        <p className="text-gray-800 dark:text-gray-300 mb-2">📧 Email: facup877@gmail.com</p>
-        <p className="text-gray-800 dark:text-gray-300">📱 Phone: +66 98-123-4567</p>
-      </section>
+
+{/* Experience */}
+<section
+  id="experience"
+  className="relative min-h-screen flex flex-col items-center justify-center px-6 
+             bg-gray-100 dark:bg-gray-900 text-center overflow-hidden"
+>
+  {/* 🌌 พื้นหลังแสงใสเบลอ (เคลื่อนที่แบบหมุนวน) */}
+  <motion.div
+    className="absolute w-96 h-96 bg-green-400/30 rounded-full blur-3xl"
+    animate={{ x: [0, 200, -150, 0], y: [0, -150, 200, 0], rotate: [0, 180, 360, 0] }}
+    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+  />
+  <motion.div
+    className="absolute w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"
+    animate={{ x: [100, -200, 150, 100], y: [200, -100, 50, 200] }}
+    transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+  />
+  <motion.div
+    className="absolute w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"
+    animate={{ x: [-150, 250, -100, -150], y: [150, -200, 100, 150] }}
+    transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
+  />
+
+  {/* เนื้อหา */}
+  <motion.h2 
+    className="relative z-10 text-4xl font-bold mb-10 text-green-400 drop-shadow-lg"
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    {translations[lang].experience}
+  </motion.h2>
+
+  <motion.p 
+    className="relative z-10 text-gray-800 dark:text-gray-300 max-w-2xl"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1, delay: 0.3 }}
+  >
+    {translations[lang].experienceText}
+  </motion.p>
+
+  <motion.div 
+    whileHover={{ scale: 1.1, rotate: 1 }} 
+    className="relative z-10"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.6 }}
+  >
+    <Link
+      to="/experience"
+      className="mt-10 inline-flex items-center gap-2 px-10 py-3 text-lg font-bold rounded-full 
+                 bg-green-500 text-black shadow-lg hover:bg-green-600 transition-all"
+    >
+      {translations[lang].viewExperience}
+    </Link>
+  </motion.div>
+</section>
+
+
+{/* Certificates */}
+<section
+  id="certificate"
+  className="relative min-h-screen flex flex-col items-center justify-center px-6 
+             bg-gradient-to-tr from-white to-gray-100 dark:from-black dark:to-gray-900 
+             text-center overflow-hidden"
+>
+  {/* ✨ พื้นหลังแสงวิบวับ */}
+  <motion.div
+    className="absolute w-72 h-72 bg-yellow-400/30 rounded-full blur-3xl"
+    animate={{ scale: [1, 1.3, 1] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+  />
+  <motion.div
+    className="absolute w-96 h-96 bg-orange-400/20 rounded-full blur-3xl"
+    animate={{ x: [0, 150, -150, 0], y: [0, -100, 100, 0], opacity: [0.3, 0.7, 0.3] }}
+    transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+  />
+  <motion.div
+    className="absolute w-56 h-56 bg-white/20 rounded-full blur-2xl"
+    animate={{ opacity: [0.2, 0.8, 0.2] }}
+    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+  />
+
+  {/* เนื้อหา */}
+  <motion.h2
+    className="relative z-10 text-4xl font-bold mb-10 text-yellow-400 drop-shadow-lg"
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    {translations[lang].certificates}
+  </motion.h2>
+
+  <motion.p
+    className="relative z-10 text-gray-800 dark:text-gray-300 max-w-2xl"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1, delay: 0.3 }}
+  >
+    {translations[lang].certificatesText}
+  </motion.p>
+
+  <motion.div
+    whileHover={{ scale: 1.2 }}
+    className="relative z-10"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.6 }}
+  >
+    <Link
+      to="/certificates"
+      className="mt-10 inline-block px-10 py-3 text-lg font-bold rounded-full 
+                 bg-gradient-to-r from-yellow-400 to-orange-500 text-black 
+                 shadow-lg hover:shadow-yellow-400/70 transition-all"
+    >
+      {translations[lang].viewCertificates}
+    </Link>
+  </motion.div>
+</section>
+
+
+
+{/* Education */}
+<section
+  id="education"
+  className="min-h-screen flex flex-col items-center justify-center px-6 
+             bg-gray-100 dark:bg-gray-800 text-center relative overflow-hidden"
+>
+  <motion.h2 className="text-4xl font-bold mb-6 text-green-400 relative z-10">
+    {translations[lang].education}
+  </motion.h2>
+
+  {/* กล่อง Glassmorphism */}
+  <motion.div
+    className="relative z-10 bg-white/10 dark:bg-gray-900/30 
+               backdrop-blur-lg border border-white/20 dark:border-gray-700/50 
+               p-8 rounded-2xl shadow-2xl max-w-xl"
+    whileHover={{ scale: 1.02 }}
+  >
+    <p className="font-semibold">
+      Phanomthuanchanupatham School (2015 - 2021)
+    </p>
+    <p>GPX : 3.46</p>
+
+    <p className="mt-4 font-semibold">
+      FACULTY OF LIBERAL ARTS & SCIENCE — IT<br />
+      Kasetsart University • Kamphaeng Saen Campus
+    </p>
+    <p>GPX : 3.14</p>
+
+    {/* ปุ่มดาวน์โหลดเรืองแสง */}
+    <motion.a
+      href="/asset/grad/สารสนเทศนิสิต มก_.pdf"
+      download
+      whileHover={{ scale: 1.1, boxShadow: "0 0 25px #22c55e" }}
+      className="mt-6 inline-block rounded-lg 
+                 bg-green-500 text-white font-bold 
+                 px-8 py-3 transition-all duration-300
+                 shadow-[0_0_20px_rgba(34,197,94,0.6)] 
+                 hover:shadow-[0_0_40px_rgba(34,197,94,0.9)]"
+    >
+      {translations[lang].downloadTranscript}
+    </motion.a>
+  </motion.div>
+
+  {/* แสงเบลอพื้นหลังให้ใส ๆ */}
+  <motion.div
+    className="absolute w-80 h-80 bg-green-400/20 rounded-full blur-3xl -z-0"
+    animate={{ x: [0, 100, -100, 0], y: [0, -80, 80, 0] }}
+    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+  />
+  <motion.div
+    className="absolute w-64 h-64 bg-blue-400/20 rounded-full blur-3xl top-40 -z-0"
+    animate={{ x: [50, -50, 50], y: [30, -60, 30] }}
+    transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+  />
+</section>
+
+
+{/* Contact */}
+<section
+  id="contact"
+  className="min-h-screen flex flex-col items-center justify-center px-6 
+             bg-white dark:bg-black text-center relative overflow-hidden"
+>
+  <motion.h2 className="text-4xl font-bold mb-6 text-green-300 relative z-10">
+    {translations[lang].contact}
+  </motion.h2>
+
+  {/* กล่องโปรไฟล์ + ข้อมูล */}
+  <motion.div
+    className="relative z-10 bg-white/10 dark:bg-gray-900/30 
+               backdrop-blur-lg border border-white/20 dark:border-gray-700/50 
+               p-6 rounded-2xl shadow-2xl max-w-2xl flex flex-col items-center"
+    whileHover={{ scale: 1.01 }}
+  >
+    {/* รูปโปรไฟล์แบบสี่เหลี่ยม */}
+    <img
+      src="/asset/openhoues/image (1).png"   // 👈 เปลี่ยนเป็น path รูปจริงของคุณ
+      alt="My Profile"
+      className="w-full max-h-[400px] object-cover shadow-lg mb-6 rounded-xl"
+    />
+
+    {/* Email & Phone */}
+    <p className="text-gray-800 dark:text-gray-300 mb-2">
+      📧 Email:{" "}
+      <a
+        href="mailto:facup877@gmail.com"
+        className="text-green-400 hover:underline"
+      >
+        facup877@gmail.com
+      </a>
+    </p>
+    <p className="text-gray-800 dark:text-gray-300">
+      📱 Phone:{" "}
+      <a
+        href="tel:+66981234567"
+        className="text-green-400 hover:underline"
+      >
+        +66 98-123-4567
+      </a>
+    </p>
+  </motion.div>
+
+  {/* แสงเบลอวิ่งพื้นหลัง */}
+  <motion.div
+    className="absolute w-80 h-80 bg-green-400/20 rounded-full blur-3xl -z-0"
+    animate={{ x: [0, 120, -120, 0], y: [0, -100, 100, 0] }}
+    transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+  />
+  <motion.div
+    className="absolute w-72 h-72 bg-purple-400/20 rounded-full blur-3xl top-40 -z-0"
+    animate={{ x: [60, -60, 60], y: [40, -70, 40] }}
+    transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+  />
+</section>
 
       {/* Footer */}
       <footer className="py-6 text-center text-gray-700 dark:text-gray-500 bg-gray-200 dark:bg-gray-900">
         © 2025 OATTHAPHON.K - All Rights Reserved
       </footer>
 
-      {/* Floating Info Button */}
-      <a
-        href="https://drive.google.com/drive/folders/19QbmzNR_WdYMxxZ30qgCu4GEdU_vgpFn?usp=drive_link"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-green-600 text-white text-2xl shadow-lg hover:bg-green-700 transition z-50"
-      >
-        <FontAwesomeIcon icon={faInfoCircle} className="animate-pulse" />
-        <span className="absolute bottom-16 right-1/2 translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-          {lang === "th" ? "ไปที่ไดรฟ์ของฉัน" : "Go to My Drive"}
-        </span>
-      </a>
+{/* Floating Info Button */}
+<a
+  href="https://drive.google.com/drive/folders/19QbmzNR_WdYMxxZ30qgCu4GEdU_vgpFn?usp=drive_link"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group fixed bottom-6 right-6 w-14 h-14 flex items-center justify-center 
+             rounded-full bg-green-600 text-white text-2xl shadow-lg 
+             hover:bg-green-700 transition z-50 
+             shadow-green-400/60 hover:shadow-green-400/90"
+>
+  {/* ไอคอน + pulse glow */}
+  <FontAwesomeIcon
+    icon={faInfoCircle}
+    className="animate-pulse drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]"
+  />
+
+  {/* Tooltip */}
+  <span className="absolute bottom-16 right-1/2 translate-x-1/2 whitespace-nowrap 
+                   bg-gray-900/90 text-white text-sm px-3 py-1 rounded-md 
+                   opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+    {lang === "th" ? "ไปที่ไดรฟ์ของฉัน" : "Go to My Drive"}
+  </span>
+</a>
+
     </div>
   );
 }
