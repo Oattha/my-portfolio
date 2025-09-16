@@ -318,6 +318,9 @@ export default function Home() {
 
     {/* ✅ ช่องทางการติดตาม */}
 <div className="flex gap-6 text-4xl">
+    <h3 className="text-xl font-semibold text-green-400 mb-4">
+    {lang === "en" ? "Follow Me" : "ช่องทางการติดตาม"}
+  </h3>
   <a
     href="https://www.facebook.com/share/1A1vAQGmCe/?mibextid=wwXIfr"
     target="_blank"
