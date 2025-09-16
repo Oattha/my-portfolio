@@ -120,15 +120,15 @@ export default function Hobbies() {
   return (
     <div className="bg-white dark:bg-black min-h-screen text-black dark:text-white p-6 relative transition-colors">
       {/* ปุ่มย้อนกลับ */}
-<Link
-  to="/"
-  className="absolute top-6 left-6 bg-green-400 hover:bg-green-500 
+      <Link
+        to="/"
+        className="fixed top-6 left-6 bg-green-400 hover:bg-green-500 
              text-black px-3 py-1 rounded-full font-semibold text-sm 
-             flex items-center gap-2 transition-all shadow-md"
->
-  <FaArrowLeft className="text-base" />
-  {translations[lang].back}
-</Link>
+             flex items-center gap-2 transition-all shadow-md z-50"
+      >
+        <FaArrowLeft className="text-base" />
+        {translations[lang].back}
+      </Link>
 
 
       <h1 className="text-4xl font-bold mb-6 text-center">
