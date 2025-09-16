@@ -1,0 +1,458 @@
+import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// eslint-disable-next-line no-unused-vars
+import { faGithub, faInstagram, faFacebook, faLine, faTiktok, faReact, faNode, faDocker, faJsSquare, faPython } from '@fortawesome/free-brands-svg-icons';
+// eslint-disable-next-line no-unused-vars
+import { faInfoCircle, faDatabase, faCloud } from '@fortawesome/free-solid-svg-icons';
+// eslint-disable-next-line no-unused-vars
+import { Link } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+// ⬇️ ใช้ LanguageContext
+import { useLanguage } from "../contexts/LanguageContext";
+import { useEffect } from "react";
+
+export default function Home() {
+  const [isLangOpen, setIsLangOpen] = useState(false);  // dropdown ภาษา
+  const [isMenuOpen, setIsMenuOpen] = useState(false);  // เมนูมือถือ
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme === "dark" : false; // default = Light
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
+  const { lang, toggleLanguage } = useLanguage();
+
+  // ✅ translations EN/TH
+  const translations = {
+    en: {
+      about: "About Me",
+      aboutText:
+        "I am currently studying IT at Kasetsart University, Kamphaeng Saen Campus, with experience in coding, full-stack development, database management, data analysis, and mobile app development. I am passionate about hardware and IoT, eager to keep learning, and committed to contributing effectively to organizational goals.",
+      skills: "Hard Skills",
+      hobbies: "Work & Hobbies",
+      hobbiesText: "Explore my work and hobbies — from construction projects, music, open house events, to outdoor cinema. Click below to see full details and photos.",
+      experience: "Experience",
+      experienceText: "Hands-on experience in IoT, Web Applications, Mobile Development, Game Development, and UI/UX Design. Click below to explore all projects with details and source code.",
+      certificates: "Certificates",
+      certificatesText: "Certificates and achievements from outstanding student awards, bootcamps, and programming courses. Click below to see the full list with previews.",
+      education: "Education",
+      contact: "Contact",
+      follow: "Follow Me",
+      viewHobbies: "🌟 View Work & Hobbies",
+      viewExperience: "💼 View Experience",
+      viewCertificates: "🏆 View All Certificates",
+      downloadTranscript: "Download Transcript",
+    },
+    th: {
+      about: "เกี่ยวกับฉัน",
+      aboutText:
+        "ผมกำลังศึกษาอยู่ที่สาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยเกษตรศาสตร์ กำแพงแสน มีประสบการณ์ด้านการเขียนโค้ด พัฒนาเว็บทั้งฝั่ง Frontend และ Backend การจัดการฐานข้อมูล การวิเคราะห์ข้อมูล และพัฒนาแอปบนมือถือ สนใจด้าน Hardware และ IoT มุ่งมั่นที่จะเรียนรู้และพัฒนาตัวเองเพื่อนำไปใช้ประโยชน์ต่อองค์กร",
+      skills: "Hard Skills",
+      hobbies: "งานและงานอดิเรก",
+      hobbiesText: "สำรวจงานและงานอดิเรกของผม — ตั้งแต่งานก่อสร้าง ดนตรี งาน Open House ไปจนถึงหนังกลางแปลง กดด้านล่างเพื่อดูรายละเอียดและรูปภาพทั้งหมด",
+      experience: "ประสบการณ์",
+      experienceText: "ประสบการณ์ตรงในด้าน IoT, การพัฒนาเว็บ, แอปมือถือ, เกม และการออกแบบ UI/UX คลิกด้านล่างเพื่อดูรายละเอียดและโค้ดทั้งหมด",
+      certificates: "เกียรติบัตร",
+      certificatesText: "เกียรติบัตรนิสิตดีเด่น ความสำเร็จจากการอบรม และคอร์สโปรแกรมมิ่ง คลิกด้านล่างเพื่อดูรายการทั้งหมด",
+      education: "การศึกษา",
+      contact: "ติดต่อ",
+      follow: "ติดตามฉัน",
+      viewHobbies: "🌟 ดูงานและงานอดิเรก",
+      viewExperience: "💼 ดูประสบการณ์",
+      viewCertificates: "🏆 ดูเกียรติบัตรทั้งหมด",
+      downloadTranscript: "ดาวน์โหลดผลการเรียน",
+    },
+  };
+
+  const menuItems = [
+    "about",
+    "skills",
+    "hobbies",
+    "experience",
+    "certificate",
+    "education",
+    "contact",
+  ];
+
+  return (
+    <div className="bg-white text-black dark:bg-black dark:text-white font-sans relative overflow-hidden">
+      {/* Navbar */}
+      <header className="fixed top-0 w-full px-6 py-4 mt-4 z-50">
+        <div
+          className="max-w-5xl mx-auto flex justify-between items-center 
+               border border-green-400 rounded-full 
+               bg-white/60 dark:bg-black/60 
+               backdrop-blur-md shadow-lg px-4 py-2 
+               transition-colors duration-300"
+        >
+          {/* โลโก้ / ชื่อ */}
+          <h1 className="text-green-400 font-bold text-lg tracking-wider">
+            OATTHAPHON.K
+          </h1>
+
+          {/* ปุ่มเปลี่ยนภาษา + DarkMode */}
+          <div className="flex items-center gap-2">
+            {/* toggle dark mode */}
+            <button
+              onClick={toggleDarkMode}
+              className="flex items-center px-2 py-1 text-sm rounded 
+                   bg-gray-800 dark:bg-gray-200 
+                   text-white dark:text-black 
+                   hover:bg-gray-700 dark:hover:bg-gray-300 
+                   transition-colors duration-300"
+            >
+              {darkMode ? "🌙" : "☀️"}
+            </button>
+
+            {/* toggle language */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center gap-1 px-2 py-1 text-sm rounded 
+                     bg-gray-800 dark:bg-gray-200 
+                     text-white dark:text-black 
+                     hover:bg-gray-700 dark:hover:bg-gray-300 
+                     transition-colors duration-300"
+              >
+                {lang.toUpperCase()} ▼
+              </button>
+
+              {isLangOpen && (
+                <div className="absolute right-0 mt-2 w-24 bg-white dark:bg-gray-800 rounded-md shadow-lg z-50">
+                  <button
+                    onClick={() => {
+                      toggleLanguage("th");
+                      setIsLangOpen(false);
+                    }}
+                    className={`block w-full text-left px-4 py-2 text-sm 
+                         hover:bg-gray-100 dark:hover:bg-gray-700 
+                         transition-colors duration-300
+                         ${lang === "th"
+                        ? "font-bold text-green-600"
+                        : "text-gray-700 dark:text-gray-200"
+                      }`}
+                  >
+                    TH
+                  </button>
+                  <button
+                    onClick={() => {
+                      toggleLanguage("en");
+                      setIsLangOpen(false);
+                    }}
+                    className={`block w-full text-left px-4 py-2 text-sm 
+                         hover:bg-gray-100 dark:hover:bg-gray-700 
+                         transition-colors duration-300
+                         ${lang === "en"
+                        ? "font-bold text-green-600"
+                        : "text-gray-700 dark:text-gray-200"
+                      }`}
+                  >
+                    EN
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* เมนู Desktop */}
+          <nav className="hidden md:flex gap-6 text-sm uppercase tracking-wide">
+            {menuItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className="hover:text-green-300 transition-colors duration-300"
+              >
+                {translations[lang][item] || item}
+              </a>
+            ))}
+          </nav>
+
+          {/* Hamburger (Mobile) */}
+          <div className="md:hidden">
+            {!isMenuOpen && (
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="text-green-400 focus:outline-none text-2xl"
+              >
+                ☰
+              </button>
+            )}
+          </div>
+        </div>
+      </header>
+
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}   // เริ่มโปร่งใส + เลื่อนขึ้น
+          animate={{ opacity: 1, y: 0 }}     // ค่อยเลื่อนลงมา
+          exit={{ opacity: 0, y: -50 }}      // เวลาออกก็หายกลับขึ้นไป
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center
+               bg-white/70 dark:bg-black/70 backdrop-blur-md"
+        >
+          {/* ปุ่มปิด */}
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-6 right-6 text-3xl 
+                 text-green-600 hover:text-green-500 dark:text-green-400 dark:hover:text-green-300 transition-transform duration-200 hover:rotate-90"
+          >
+            ✕
+          </button>
+
+          {/* เมนู */}
+          <nav className="flex flex-col gap-8 text-2xl font-bold">
+            {menuItems.map((item, i) => (
+              <motion.a
+                key={item}
+                href={`#${item}`}
+                onClick={() => setIsMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.3 }}  // สไลด์ลงทีละหัวข้อ
+                className="text-green-600 dark:text-green-400 
+                     hover:text-green-500 dark:hover:text-green-300
+                     transition-all duration-300 relative"
+                whileHover={{ scale: 1.1 }} // ขยายตอน hover
+              >
+                {translations[lang][item] || item}
+
+                {/* เส้นขีดใต้วิ่งเวลา hover */}
+                <span className="absolute left-0 -bottom-1 w-0 h-1 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
+              </motion.a>
+            ))}
+          </nav>
+        </motion.div>
+      )}
+
+
+      {/* Hero */}
+      <section className="flex flex-col items-center justify-center h-screen relative text-center">
+        {/* Floating Tech Icons */}
+        <motion.div className="absolute top-20 left-10 text-6xl text-blue-400"
+          animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 4 }}>
+          <FontAwesomeIcon icon={faReact} />
+        </motion.div>
+        <motion.div className="absolute bottom-20 right-16 text-6xl text-green-400"
+          animate={{ y: [0, 20, 0] }} transition={{ repeat: Infinity, duration: 5 }}>
+          <FontAwesomeIcon icon={faNode} />
+        </motion.div>
+        <motion.div className="absolute top-40 right-32 text-6xl text-sky-500"
+          animate={{ x: [0, 15, 0] }} transition={{ repeat: Infinity, duration: 6 }}>
+          <FontAwesomeIcon icon={faDocker} />
+        </motion.div>
+        <motion.div className="absolute bottom-32 left-24 text-6xl text-yellow-400"
+          animate={{ x: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 7 }}>
+          <FontAwesomeIcon icon={faJsSquare} />
+        </motion.div>
+
+        {/* Profile + Name + Title (กล่องเดียวกัน) */}
+        <div className="flex flex-col items-center justify-center">
+          <motion.img
+            src="/asset/NongMo-0608.jpg"
+            alt="Oatthaphon Khamphon"
+            className="w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-green-400 object-cover mb-6 z-10 shadow-xl"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1 }}
+          />
+
+          <motion.h1
+            className="text-4xl md:text-6xl font-extrabold tracking-wide"
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2 }}
+          >
+            OATTHAPHON KHAMPHON
+          </motion.h1>
+
+          <motion.p
+            className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400 text-2xl mt-4"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+          >
+            Full Stack Developer Intern
+          </motion.p>
+        </div>
+      </section>
+
+
+      {/* About Me */}
+      <section id="about" className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-6 bg-gradient-to-r from-white via-gray-100 to-white dark:from-black dark:via-gray-900 dark:to-black">
+        <motion.div className="md:w-1/2"
+          initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
+          <h2 className="text-4xl font-bold mb-6 text-green-400">{translations[lang].about}</h2>
+          <p className="text-gray-800 dark:text-gray-300 leading-relaxed">
+            {translations[lang].aboutText}
+          </p>
+        </motion.div>
+        <motion.div className="md:w-1/3 flex justify-center"
+          initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.3 }}>
+          <img src="/asset/NongMo-0608.jpg" alt="About" className="rounded-2xl shadow-lg border-4 border-green-400" />
+        </motion.div>
+      </section>
+
+      {/* Hard Skills */}
+      <section
+        id="skills"
+        className="relative min-h-screen flex flex-col items-center justify-center px-6 
+             bg-gradient-to-r from-gray-100 via-white to-gray-100 
+             dark:from-gray-900 dark:via-black dark:to-gray-900 overflow-hidden"
+      >
+        {/* พื้นหลังลายวงกลมโปร่งใส */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.15)_0,transparent_70%)]"></div>
+
+        {/* เอฟเฟกต์วงกลมเบลอ */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+
+        <motion.h2
+          className="text-4xl font-bold mb-10 text-green-400 relative z-10"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Hard Skills
+        </motion.h2>
+
+        {/* Floating Tech Icons */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[
+            { icon: faReact, color: "text-blue-400", top: "15%", left: "20%" },
+            { icon: faNode, color: "text-green-400", top: "30%", left: "70%" },
+            { icon: faDocker, color: "text-sky-400", top: "60%", left: "25%" },
+            { icon: faJsSquare, color: "text-yellow-400", top: "70%", left: "60%" },
+            { icon: faPython, color: "text-indigo-400", top: "45%", left: "40%" },
+            { icon: faDatabase, color: "text-pink-400", top: "20%", left: "55%" },
+            { icon: faCloud, color: "text-white", top: "75%", left: "35%" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className={`absolute text-6xl ${item.color}`}
+              style={{ top: item.top, left: item.left }}
+              animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+              transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <FontAwesomeIcon icon={item.icon} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* skill list จริง */}
+        <motion.div
+          className="relative z-10 grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-800 dark:text-gray-300 text-center max-w-4xl"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <span className="hover:text-green-400 transition-colors">
+            ⚡ Programming : JavaScript, Dart, Python, Java, C++, React.js, Vue.js, Node.js, HTML
+          </span>
+          <span className="hover:text-green-400 transition-colors">
+            ⚡ Programming : CSS, Tailwind , Prisma ORM, MySQL, Firebase, RESTful API, JWT, Docker
+          </span>
+          <span className="hover:text-green-400 transition-colors">
+            ⚡ FrameWork : React, Bootstrap, Tailwind, Node JS, .NET , Flutter
+          </span>
+          <span className="hover:text-green-400 transition-colors">
+            ⚡ DataBase : MongoDB, MySQL, PostgreSQL
+          </span>
+          <span className="hover:text-green-400 transition-colors">
+            ⚡ Tools : Git, GitHub, Postman, VS Code, Android Studio, Figma
+          </span>
+          <span className="hover:text-green-400 transition-colors">
+            ⚡ Cloud : AWS Cloud, Firebase
+          </span>
+        </motion.div>
+      </section>
+
+
+      {/* Hobbies */}
+      <section id="hobbies" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-black text-center relative">
+        <motion.h2 className="text-4xl font-bold mb-10 text-pink-400 drop-shadow-lg">{translations[lang].hobbies}</motion.h2>
+        <p className="text-gray-800 dark:text-gray-300 max-w-2xl">{translations[lang].hobbiesText}</p>
+        <motion.div whileHover={{ scale: 1.15 }}>
+          <Link to="/hobbies" className="mt-10 inline-block px-10 py-3 text-lg font-bold rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-black shadow-lg hover:shadow-green-400/70 transition-all">
+            {translations[lang].viewHobbies}
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Experience */}
+      <section id="experience" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gray-100 dark:bg-gray-900 text-center">
+        <motion.h2 className="text-4xl font-bold mb-10 text-green-400">{translations[lang].experience}</motion.h2>
+        <p className="text-gray-800 dark:text-gray-300 max-w-2xl">{translations[lang].experienceText}</p>
+        <motion.div whileHover={{ scale: 1.1, rotate: 1 }}>
+          <Link to="/experience" className="mt-10 inline-flex items-center gap-2 px-10 py-3 text-lg font-bold rounded-full bg-green-500 text-black shadow-lg hover:bg-green-600 transition-all">
+            {translations[lang].viewExperience}
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Certificates */}
+      <section id="certificate" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-tr from-white to-gray-100 dark:from-black dark:to-gray-900 text-center relative">
+        <motion.h2 className="text-4xl font-bold mb-10 text-yellow-400 drop-shadow-lg">{translations[lang].certificates}</motion.h2>
+        <p className="text-gray-800 dark:text-gray-300 max-w-2xl">{translations[lang].certificatesText}</p>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <Link to="/certificates" className="mt-10 inline-block px-10 py-3 text-lg font-bold rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-lg hover:shadow-yellow-400/70 transition-all">
+            {translations[lang].viewCertificates}
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Education */}
+      <section id="education" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gray-100 dark:bg-gray-800 text-center">
+        <motion.h2 className="text-4xl font-bold mb-6 text-green-400">{translations[lang].education}</motion.h2>
+        <motion.div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg max-w-xl">
+          <p className="font-semibold">Phanomthuanchanupatham School (2015 - 2021)</p>
+          <p>GPX : 3.46</p>
+          <p className="mt-4 font-semibold">FACULTY OF LIBERAL ARTS & SCIENCE — IT<br />Kasetsart University • Kamphaeng Saen Campus</p>
+          <p>GPX : 3.14</p>
+          <a href="/asset/grad/สารสนเทศนิสิต มก_.pdf" download className="mt-6 inline-block rounded-lg bg-green-600 px-6 py-2 text-white font-semibold hover:bg-green-700 transition">
+            {translations[lang].downloadTranscript}
+          </a>
+        </motion.div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="min-h-screen flex flex-col items-center justify-center px-6 bg-white dark:bg-black text-center">
+        <motion.h2 className="text-4xl font-bold mb-6 text-green-300">{translations[lang].contact}</motion.h2>
+        <p className="text-gray-800 dark:text-gray-300 mb-2">📧 Email: facup877@gmail.com</p>
+        <p className="text-gray-800 dark:text-gray-300">📱 Phone: +66 98-123-4567</p>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-gray-700 dark:text-gray-500 bg-gray-200 dark:bg-gray-900">
+        © 2025 OATTHAPHON.K - All Rights Reserved
+      </footer>
+
+      {/* Floating Info Button */}
+      <a
+        href="https://drive.google.com/drive/folders/19QbmzNR_WdYMxxZ30qgCu4GEdU_vgpFn?usp=drive_link"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-green-600 text-white text-2xl shadow-lg hover:bg-green-700 transition z-50"
+      >
+        <FontAwesomeIcon icon={faInfoCircle} className="animate-pulse" />
+        <span className="absolute bottom-16 right-1/2 translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+          {lang === "th" ? "ไปที่ไดรฟ์ของฉัน" : "Go to My Drive"}
+        </span>
+      </a>
+    </div>
+  );
+}
