@@ -30,7 +30,7 @@ export default function Hobbies() {
     {
       title: "NRC",
       description: {
-        en: "Worked in the assembly department constructing power plants with Namruean Construction Company Limited (บริษัท นามเรือน คอนสตรัคชั่น จำกัด) during every school break from 2022 to present.",
+        en: "Worked in the assembly department constructing power plants with Namruean Construction Company Limited (บริษัท นามเรือน คอนสตรัคชั่น จำกัด) during every school break from 2022 to 2025.",
         th: "ทำงานในฝ่ายช่างประกอบสร้างโรงไฟฟ้ากับบริษัท นามเรือน คอนสตรัคชั่น จำกัด (Namruean Construction Company Limited) ทุกช่วงปิดภาคเรียน ตั้งแต่ปี 2022 จนถึงปัจจุบัน"
 
       },
