@@ -769,10 +769,10 @@ export default function Home() {
     <p className="text-gray-800 dark:text-gray-300 mb-2">
       📧 Email:{" "}
       <a
-        href="mailto:oatthaphon.kham@gmail.com"
+        href="mailto:oatthaphon5556@gmail.com"
         className="text-green-400 hover:underline"
       >
-        oatthaphon.kham@gmail.com
+        oatthaphon5556@gmail.com
       </a>
     </p>
     <p className="text-gray-800 dark:text-gray-300">
