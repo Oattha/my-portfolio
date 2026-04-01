@@ -12,7 +12,7 @@ export default function Certificates() {
   };
 
   const certificates = [
-    { title: { en: "Full Stack Bootcamp - 2023", th: "บูทแคมป์ฟูลสแต็ก - 2023" }, img: "/asset/IMG_1757.jpg" },
+    { title: { en: "Outstanding Student Award (2022)", th: "รางวัลนิสิตดีเด่น (2022)" }, img: "/asset/IMG_1757.jpg" },
     { title: { en: "AI AND CYBERSECURITY", th: "เอไอ และ ความปลอดภัยทางไซเบอร์" }, pdf: "/asset/เกียรติบัตรไซเบอร์.pdf" },
     { title: { en: "CSS Certificate", th: "เกียรติบัตร CSS" }, pdf: "/asset/css certificate.pdf" },
     { title: { en: "JavaScript Basic", th: "จาวาสคริปต์ เบื้องต้น" }, pdf: "/asset/javascript_basic certificate.pdf" },

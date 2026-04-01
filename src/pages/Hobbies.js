@@ -13,6 +13,20 @@ export default function Hobbies() {
   };
 
   const hobbiesList = [
+{
+      title: "Internship & Freelance Debugging – WHP Global Solution Service",
+      description: {
+  en: "Completed an internship at WHP Global Solution Service Co., Ltd. as a Junior Full-stack Developer, primarily leading the 'ThaiIoT Platform Enhancement Project'. I developed core features across Frontend and Backend, designed system workflows, and created UI/UX wireframes using Figma. I played a key role in team coordination, project planning, and resolving complex code/configuration conflicts. Notably, I was headhunted for two additional confidential production-level projects and gained DevOps fundamentals in deployment and environment management. **I specialized in deep-level debugging, bug fixing, API security testing, and performance optimization.** Following my internship, I have been hired as a Freelance Developer, specifically tasked with analyzing, debugging, and resolving critical system bugs for projects offered by the company.", 
+  th: "ผ่านการฝึกงานที่บริษัท ดับเบิ้ลยูเอชพี โกลบอล โซลูชั่น เซอร์วิส จำกัด ในตำแหน่ง Junior Full-stack Developer โดยเป็นแกนหลักในโครงการ 'ThaiIoT Platform Enhancement' พัฒนาฟีเจอร์ทั้งส่วน Frontend และ Backend รวมถึงออกแบบ Workflow, System Flow และ Wireframe ด้วย Figma นอกจากนี้ยังมีบทบาทสำคัญในการวางแผนงานและจัดการปัญหา Conflict ของโค้ดและ Configuration ที่ซับซ้อนภายในทีม รวมถึงได้รับความไว้วางใจให้ดูแลโปรเจกต์ระดับ Production เพิ่มเติมอีก 2 รายการ (Confidential) และเรียนรู้ด้าน DevOps **โดยเน้นความเชี่ยวชาญพิเศษด้านการดีบักและแก้ไขบั๊ก (Deep-level Debugging & Bug Fixing) การทดสอบความปลอดภัย API และการปรับปรุงประสิทธิภาพระบบ** ซึ่งหลังจากจบการฝึกงาน ผมยังคงได้รับโอกาสทำงานต่อในรูปแบบ Freelance โดยเน้นไปที่การวิเคราะห์ ดีบัก และแก้ไขบั๊กของโปรเจกต์ต่างๆ ตามที่ได้รับข้อเสนอจากทางบริษัท"
+},
+      images: [
+        "/asset/WHP/whp1.jpg",
+        "/asset/WHP/whp2.jpg",
+        "/asset/WHP/whp3.jpg",
+        "/asset/WHP/whp4.jpg",
+        "/asset/WHP/whp5.jpg",
+      ],
+    },
     {
       title: "NRC",
       description: {
@@ -103,11 +117,23 @@ export default function Hobbies() {
         "/asset/cinema/cinema6.jpg",
         "/asset/cinema/cinema7.jpg",
         "/asset/cinema/cinema8.jpg",
-        "/asset/cinema/cinema9.jpg",
+        //"/asset/cinema/cinema9.jpg",
         "/asset/cinema/cinema10.jpg",
         "/asset/cinema/cinema11.jpg",
         "/asset/cinema/cinema12.jpg",
         "/asset/cinema/cinema13.jpg",
+        "/asset/cinema/cinema14.jpg",
+        "/asset/cinema/cinema15.jpg",
+        "/asset/cinema/cinema16.jpg",
+        "/asset/cinema/cinema17.jpg",
+        "/asset/cinema/cinema18.jpg",
+        "/asset/cinema/cinema19.jpg",
+        "/asset/cinema/cinema20.jpg",
+        "/asset/cinema/cinema21.jpg",
+        "/asset/cinema/cinema22.jpg",
+        "/asset/cinema/cinema23.jpg",
+        "/asset/cinema/cinema24.jpg",
+        "/asset/cinema/cinema25.jpg",
       ],
     },
   ];
@@ -145,7 +171,6 @@ export default function Hobbies() {
             <p className="text-gray-700 dark:text-gray-300 mb-4 text-center">
               {hobby.description[lang]}
             </p>
-
             {/* Fix 3 คอลัมน์ (แกน X) แล้วดันลงล่าง (แกน Y) */}
             <div className="grid grid-cols-3 gap-3">
               {hobby.images.map((img, i) => (

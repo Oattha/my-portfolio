@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 export default function Experience() {
   const { lang } = useLanguage();
-  const [selectedImage, setSelectedImage] = useState(null); // 🟢 state สำหรับ modal
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const translations = {
     en: {
@@ -13,16 +13,84 @@ export default function Experience() {
       back: "",
       view: "View",
       example: "Example",
+      techTitle: "Tech Stack",
     },
     th: {
       pageTitle: "ประสบการณ์",
       back: "",
       view: "ดูรายละเอียด",
       example: "ตัวอย่าง",
+      techTitle: "เทคโนโลยีที่ใช้ (Tech Stack)",
     },
   };
 
   const experiences = [
+
+    {
+      title: "Featured Large-Scale Projects (Production Ready)",
+      projects: [
+        {
+          name: "ThaiIoT Association Platform - Member & Event Management",
+          techStack: {
+            frontend: "React.js, JavaScript, Bootstrap, Axios",
+            backend: "Python (Django), Django REST Framework (DRF)",
+            services: "Redis (Caching), Docker, MySQL, Facebook Graph API, SMTP Account Pool",
+          },
+          description: {
+            "en": "A comprehensive enterprise-grade platform developed for the Thai IoT Association. Due to corporate confidentiality, this summary covers only publicly disclosable features of this 'Mega Project'. It highlights a complex membership system with multi-tier registration, automated prorated fee calculation, and tiered expiration notifications. Key innovations include a Load-Balanced SMTP system for high-volume email broadcasting, automated background workers, and seamless Facebook API integration. The system emphasizes high performance via Redis caching and robust security through API Hardening.",
+
+            "th": "แพลตฟอร์มระดับ Enterprise สำหรับสมาคมไทยไอโอที (ข้อมูลชุดนี้สรุปเฉพาะฟีเจอร์และนวัตกรรมที่ได้รับอนุญาตให้เผยแพร่ได้ตามนโยบายความเป็นส่วนตัวของบริษัท) เมกะโปรเจคนี้เน้นระบบจัดการสมาชิกที่ซับซ้อน รองรับการคำนวณค่าธรรมเนียมแบบแบ่งไตรมาส (Prorate) และระบบจัดการสิทธิ์ที่ละเอียด ชูจุดเด่นด้วยระบบส่งอีเมลแบบ Load Balance (SMTP Account Pool), ระบบ Automated Tasks และการเชื่อมต่อ Facebook Graph API โดยให้ความสำคัญกับการทดสอบประสิทธิภาพด้วย JMeter และการทำ Caching ด้วย Redis เพื่อรองรับปริมาณ Transaction สูง"
+          },
+          images: [
+            "/asset/thaiiot/thaiiot.png",
+            "/asset/thaiiot/thaiiot1.png",
+            "/asset/thaiiot/thaiiot2.png",
+            "/asset/thaiiot/thaiiot3.png",
+            "/asset/thaiiot/thaiiot4.png",
+            "/asset/thaiiot/thaiiot5.png",
+            "/asset/thaiiot/thaiiot6.png",
+            "/asset/thaiiot/thaiiot7.png",
+            "/asset/thaiiot/thaiiot9.png",
+          ],
+          // แจ้งข้อจำกัดเรื่องการเผยแพร่ซอร์สโค้ดตามที่คุณต้องการ
+          github: "https://worksiteweb.site/",
+        },
+        {
+          name: "KU Trading - Dynamic Community Marketplace",
+          techStack: {
+            frontend: "React + Vite, TypeScript, Tailwind CSS, Zustand, React Hook Form, Framer Motion",
+            backend: "Node.js + Express.js, Prisma ORM + PostgreSQL, JWT Authentication",
+            services: "Socket.io (Real-time), Cloudinary (Image Hosting), Nodemailer",
+          },
+          description: {
+            en: "A comprehensive Dynamic C2C community platform exclusively for KU KPS students, fully deployed at https://kutrading.onrender.com. Built on a Full-stack architecture, the platform features a Real-time system via WebSockets (Socket.io) with instant notifications, private and trade-specific chat rooms, read receipts, and multimedia support (emojis/videos). It includes a secure KYC identity verification system with integrated email notifications for approvals, along with core features such as item posting, user reporting, appointment scheduling, and a rating/review system. The project also features a robust Admin Dashboard with activity logs to monitor users and community safety. The entire ecosystem—frontend, backend, and database—is live.",
+            th: "Dynamic แพลตฟอร์มคอมมูนิตี้แลกเปลี่ยนสิ่งของเฉพาะชาว KU kps เต็มรูปแบบที่ใช้งานจริงที่ https://kutrading.onrender.com พัฒนาด้วยโครงสร้าง Full-stack โดยมีจุดเด่นคือระบบ Real-time ผ่าน WebSockets (Socket.io) ที่รองรับการแจ้งเตือน การแลกของ การแชทแบบเรียลไทม์ แบ่งเป็นห้องแชทส่วนตัวกับห้องแชทแลกเปลี่ยน มีแสดงสถานะว่าอ่านหรือยัง ส่ง Emoji วิดีโอได้, ระบบยืนยันตัวตน (KYC), โพสต์ของ, รีพอร์ต, นัดหมาย, ให้คะแนนรีวิว, และหน้า Admin Dashboard สำหรับจัดการผู้ใช้และรายงานพฤติกรรม ตอบรับ/ปฏิเสธ KYC ทางอีเมลจริง, log ของแอดมิน ระบบทั้งหมดทั้งหน้าบ้าน หลังบ้าน และฐานข้อมูล ถูกดีพลอยและใช้งานได้จริง",
+          },
+          images: [
+            "/asset/ITproj/ITproj1.png",
+            "/asset/ITproj/ITproj2.png",
+            "/asset/ITproj/ITproj3.png",
+            "/asset/ITproj/ITproj4.png",
+            "/asset/ITproj/ITproj5.png",
+            "/asset/ITproj/ITproj6.png",
+            "/asset/ITproj/ITproj7.png",
+            "/asset/ITproj/ITproj8.png",
+            "/asset/ITproj/ITproj9.png",
+            "/asset/ITproj/ITproj10.png",
+            "/asset/ITproj/ITproj11.png",
+            "/asset/ITproj/ITproj12.png",
+            "/asset/ITproj/ITproj13.png",
+            "/asset/ITproj/ITproj14.png",
+            "/asset/ITproj/ITproj15.png",
+            "/asset/ITproj/ITproj16.png",
+            "/asset/ITproj/ITproj17.png",
+            "/asset/ITproj/ITproj18.png",
+          ],
+          github: "https://github.com/Oattha/KuTrading.git",
+        },
+      ],
+    },
+
     {
       title: "IoT Development",
       projects: [
@@ -155,8 +223,6 @@ export default function Experience() {
         {translations[lang].back}
       </Link>
 
-
-
       <h1 className="text-4xl font-bold mb-6 text-center">
         {translations[lang].pageTitle}
       </h1>
@@ -195,7 +261,33 @@ export default function Experience() {
                       </div>
                     )}
 
-                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">
+                    {/* หัวข้อ Tech Stack แยกออกมา */}
+                    {project.techStack && (
+                      <div className="mb-4 p-4 border-l-4 border-green-400 bg-gray-200 dark:bg-gray-900/50 rounded-r-lg shadow-inner">
+                        <p className="text-green-500 font-bold mb-3 text-sm uppercase tracking-wider">
+                          🚀 {translations[lang].techTitle}
+                        </p>
+                        <div className="space-y-3 text-xs leading-relaxed">
+                          <p>
+                            <span className="font-bold text-green-600 dark:text-green-400">Frontend:</span>
+                            <br />
+                            {project.techStack.frontend}
+                          </p>
+                          <p>
+                            <span className="font-bold text-green-600 dark:text-green-400">Backend:</span>
+                            <br />
+                            {project.techStack.backend}
+                          </p>
+                          <p>
+                            <span className="font-bold text-green-600 dark:text-green-400">Services:</span>
+                            <br />
+                            {project.techStack.services}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-3 whitespace-pre-wrap">
                       {project.description[lang]}
                     </p>
 

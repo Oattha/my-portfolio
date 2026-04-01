@@ -40,10 +40,10 @@ export default function Home() {
     en: {
       about: "About Me",
       aboutText:
-        "I am currently studying IT at Kasetsart University, Kamphaeng Saen Campus, with experience in coding, full-stack development, database management, data analysis, and mobile app development. I am passionate about hardware and IoT, eager to keep learning, and committed to contributing effectively to organizational goals.",
+      "I graduated with a degree in Information Technology from Kasetsart University, Kamphaeng Saen Campus. I have extensive experience in coding, full-stack development (React & Django), database management, and mobile app development. I possess strong skills in analyzing, debugging, and fixing complex technical issues, as well as designing system workflows. Passionate about hardware and IoT, I am currently furthering my expertise in DevOps to enhance system operations and deployment efficiency. I am committed to continuous learning and contributing my technical skills to drive organizational success.",
       skills: "Hard Skills",
       hobbies: "Work & Hobbies",
-      hobbiesText: "Explore my work and hobbies — from construction projects, music, open house events, to outdoor cinema. Click below to see full details and photos.",
+      hobbiesText: "Explore my work and hobbies — from programming projects, music, open house events, to outdoor cinema. Click below to see full details and photos.",
       experience: "Experience",
       experienceText: "Hands-on experience in IoT, Web Applications, Mobile Development, Game Development, and UI/UX Design. Click below to explore all projects with details and source code.",
       certificates: "Certificates",
@@ -59,10 +59,10 @@ export default function Home() {
     th: {
       about: "เกี่ยวกับฉัน",
       aboutText:
-        "ผมกำลังศึกษาอยู่ที่สาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยเกษตรศาสตร์ กำแพงแสน มีประสบการณ์ด้านการเขียนโค้ด พัฒนาเว็บทั้งฝั่ง Frontend และ Backend การจัดการฐานข้อมูล การวิเคราะห์ข้อมูล และพัฒนาแอปบนมือถือ สนใจด้าน Hardware และ IoT มุ่งมั่นที่จะเรียนรู้และพัฒนาตัวเองเพื่อนำไปใช้ประโยชน์ต่อองค์กร",
+      "ผมสำเร็จการศึกษาจากสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตกำแพงแสน มีประสบการณ์ด้านการเขียนโค้ด พัฒนาเว็บทั้งฝั่ง Frontend และ Backend (React & Django) การจัดการฐานข้อมูล และพัฒนาแอปบนมือถือ ผมมีทักษะที่โดดเด่นด้านการ วิเคราะห์ ดีบัก และแก้ไขบั๊ก (Debugging & Bug Fixing) ปัญหาเชิงลึกที่ซับซ้อน รวมถึงการออกแบบ System Workflow นอกจากนี้ผมยังมีความสนใจในด้าน Hardware และ IoT โดยปัจจุบันกำลัง ศึกษาต่อยอดในด้าน DevOps เพื่อเสริมสร้างทักษะการจัดการระบบและกระบวนการ Deploy ให้มีประสิทธิภาพสูงสุด พร้อมมุ่งมั่นที่จะพัฒนาตนเองอย่างต่อเนื่องเพื่อนำความรู้ความสามารถไปสร้างประโยชน์ให้กับองค์กร",
       skills: "Hard Skills",
       hobbies: "งานและงานอดิเรก",
-      hobbiesText: "สำรวจงานและงานอดิเรกของผม — ตั้งแต่งานก่อสร้าง ดนตรี งาน Open House ไปจนถึงหนังกลางแปลง กดด้านล่างเพื่อดูรายละเอียดและรูปภาพทั้งหมด",
+      hobbiesText: "สำรวจงานและงานอดิเรกของผม — ตั้งแต่งานโปรแกรมเมอร์ ก่อสร้าง ดนตรี งาน Open House ไปจนถึงหนังกลางแปลง กดด้านล่างเพื่อดูรายละเอียดและรูปภาพทั้งหมด",
       experience: "ประสบการณ์",
       experienceText: "ประสบการณ์ตรงในด้าน IoT, การพัฒนาเว็บ, แอปมือถือ, เกม และการออกแบบ UI/UX คลิกด้านล่างเพื่อดูรายละเอียดและโค้ดทั้งหมด",
       certificates: "เกียรติบัตร",
@@ -291,7 +291,7 @@ export default function Home() {
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 1.2, delay: 0.3 }}
   >
-    Full Stack Developer Intern
+    Software Developer
   </motion.p>
 </div>
 
@@ -362,7 +362,7 @@ export default function Home() {
       <FontAwesomeIcon icon={faInstagram} />
     </a>
     <a
-      href="https://www.tiktok.com/@uuykae?_t=ZS-8zlzEFWqfWj&_r=1"
+      href="https://www.tiktok.com/@oatthaphon_uuykae?is_from_webapp=1&sender_device=pc"
       target="_blank"
       rel="noopener noreferrer"
       className="text-black dark:text-white hover:text-pink-400 
@@ -438,37 +438,43 @@ export default function Home() {
         </div>
 
 {/* skill list จริง */}
+{/* skill list จริง */}
 <motion.div
   className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl"
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
   transition={{ duration: 1, delay: 0.3 }}
 >
-  {[
+{[
+  {
+    title: "⚡ Programming",
+    detail: "TypeScript, JavaScript, Dart, Python, Java, C++, React.js, Vue.js, Node.js, HTML, PHP, Django",
+  },
+  {
+    title: "⚡ Specialized Tech",
+    detail: "Advanced Debugging, Bug Fixing, API Security Hardening, Regression Testing, JWT, RBAC (Roles & Permissions), KYC System Logic",
+  },
+  {
+    title: "⚡ Cloud & DevOps",
+    detail: "AWS Cloud, Render, Railway, Vercel, Firebase, Netlify, Nginx, System Deployment, Workflow Design, Supabase Auth/DB",
+  },
+  {
+    title: "⚡ Full-Stack & Real-time",
+    detail: "React, Django REST Framework, Socket.io (WebSockets), Node JS, .NET, Flutter, Tailwind, Bootstrap",
+  },
+  {
+    title: "⚡ DataBase & Caching",
+    detail: "MySQL, PostgreSQL, MongoDB, Redis (Advanced Caching), Prisma ORM",
+  },
+  {
+    title: "⚡ Tools & Integration",
+    detail: "Git, GitHub, Figma, Postman, JMeter, Docker, Google APIs (OAuth/Maps), Facebook Graph API, SMTP Service (Load-Balanced)",
+  },
     {
-      title: "⚡ Programming",
-      detail: "JavaScript, Dart, Python, Java, C++, React.js, Vue.js, Node.js, HTML",
-    },
-    {
-      title: "⚡ Programming",
-      detail: "CSS, Tailwind, Prisma ORM, MySQL, Firebase, RESTful API, JWT, Docker",
-    },
-    {
-      title: "⚡ FrameWork",
-      detail: "React, Bootstrap, Tailwind, Node JS, .NET, Flutter",
-    },
-    {
-      title: "⚡ DataBase",
-      detail: "MongoDB, MySQL, PostgreSQL",
-    },
-    {
-      title: "⚡ Tools",
-      detail: "Git, GitHub, Postman, VS Code, Android Studio, Figma",
-    },
-    {
-      title: "⚡ Cloud",
-      detail: "AWS Cloud, Firebase, Netlify",
-    },
+    title: "⚡ Data Engineering & ETL",
+    detail: "Apache Airflow (Workflow Orchestration), ETL Pipelines, Data Transformation, Automated Scheduling, Tableau, Power BI",
+  },
+  
   ].map((skill, i) => (
     <div
       key={i}
@@ -704,9 +710,9 @@ export default function Home() {
       FACULTY OF LIBERAL ARTS & SCIENCE — IT<br />
       Kasetsart University • Kamphaeng Saen Campus
     </p>
-    <p>GPX : 3.14</p>
+    <p>GPA : 3.20 (7 Semesters)</p>
 
-    {/* ปุ่มดาวน์โหลดเรืองแสง */}
+    {/* ปุ่มดาวน์โหลดเรืองแสง
     <motion.a
       href="/asset/grad/สารสนเทศนิสิต มก_.pdf"
       download
@@ -718,7 +724,7 @@ export default function Home() {
                  hover:shadow-[0_0_40px_rgba(34,197,94,0.9)]"
     >
       {translations[lang].downloadTranscript}
-    </motion.a>
+    </motion.a> */}
   </motion.div>
 
   {/* แสงเบลอพื้นหลังให้ใส ๆ */}
@@ -763,19 +769,19 @@ export default function Home() {
     <p className="text-gray-800 dark:text-gray-300 mb-2">
       📧 Email:{" "}
       <a
-        href="mailto:facup877@gmail.com"
+        href="mailto:oatthaphon.kham@gmail.com"
         className="text-green-400 hover:underline"
       >
-        facup877@gmail.com
+        oatthaphon.kham@gmail.com
       </a>
     </p>
     <p className="text-gray-800 dark:text-gray-300">
       📱 Phone:{" "}
       <a
-        href="tel:+66981234567"
+        href="tel:+66934942312"
         className="text-green-400 hover:underline"
       >
-        +66 98-123-4567
+        +66 93-494-2312
       </a>
     </p>
   </motion.div>
